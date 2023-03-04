@@ -8,22 +8,26 @@ const Container = styled.div`
 
 const Header = css`
     display: block;
-    padding: 15px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
     text-transform: uppercase;
     color: ${props => props.theme.colors.textGrey};
 `
 
 const Header1 = styled.span`
     ${Header}
+    min-width: 130px;
     flex: 1;
     color: ${props => props.theme.colors.textGrey};
+    box-sizing: border-box;
 `
 
 const Header2 = styled.span`
     ${Header}
     border-left: 1px solid ${props => props.theme.colors.textGrey};
-    width: 180px;
+    width: 220px;
+    box-sizing: border-box;
 `
 
 type TableHeaderProps = {

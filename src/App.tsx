@@ -6,6 +6,8 @@ const Container = styled.div`
     background: #323232;
 	max-width: 460px;
 	margin: 50px auto;
+	border-radius: 40px;
+	overflow: hidden;
 `
 
 type Day = {

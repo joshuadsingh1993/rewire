@@ -14,12 +14,15 @@ const Name = styled.span`
     font-size: 20px;
     text-transform: uppercase;
     color: ${props => props.theme.colors.white};
+    min-width: 130px;
+    box-sizing: border-box;
 `
 
 const RadialContainer = styled.div`
     padding: 15px;
-    width: 180px;
+    width: 220px;
     border-left: 1px solid ${props => props.theme.colors.textGrey};
+    box-sizing: border-box;
 `
 
 type TableRowProps = {
