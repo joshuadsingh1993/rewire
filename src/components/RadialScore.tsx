@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { LEVELS } from '../utils/constants'
 import { getLevelFromScore } from '../utils/helpers'
 
-const ringWidth = 10;
-const size = 80;
+const ringWidth = 10
+const size = 80
 
 const Container = styled.div`
   display: flex;
@@ -86,36 +86,36 @@ type RadialScoreProps = {
 }
 
 export default function RadialScore({ score }: RadialScoreProps) {
-  const circleRef = useRef<SVGCircleElement>(null)
+	const circleRef = useRef<SVGCircleElement>(null)
 
-  const circleOffset = (percentage: number) => `${((100 - percentage) / 100) * size * 2.75}`
+	const circleOffset = (percentage: number) => `${((100 - percentage) / 100) * size * 2.75}`
 
-  useEffect(() => {
-    if (circleRef.current) {
-      const circleSpinning = [{ strokeDashoffset: circleOffset(score) }]
+	useEffect(() => {
+		if (circleRef.current) {
+			const circleSpinning = [{ strokeDashoffset: circleOffset(score) }]
 
-      const circleTiming = {
-        duration: 500,
-        fill: 'forwards',
-        easing: 'ease-in-out'
-      }
+			const circleTiming = {
+				duration: 500,
+				fill: 'forwards',
+				easing: 'ease-in-out'
+			}
 
-      circleRef.current.animate(circleSpinning, circleTiming as KeyframeAnimationOptions)
-    }
-  }, [])
+			circleRef.current.animate(circleSpinning, circleTiming as KeyframeAnimationOptions)
+		}
+	}, [])
 
-  return (
-    <Container>
-      <RadialContainer>
-        <Radial>
-          <BackgroundCircle />
-          <Svg score={score}>
-            <circle ref={circleRef} cx={size / 2} cy={size / 2} r={size / 2 - ringWidth / 2} />
-          </Svg>
-          <Score>{score}</Score>
-        </Radial>
-      </RadialContainer>
-      <Level>{getLevelFromScore(score)}</Level>
-    </Container>
-  )
+	return (
+		<Container>
+			<RadialContainer>
+				<Radial>
+					<BackgroundCircle />
+					<Svg score={score}>
+						<circle ref={circleRef} cx={size / 2} cy={size / 2} r={size / 2 - ringWidth / 2} />
+					</Svg>
+					<Score>{score}</Score>
+				</Radial>
+			</RadialContainer>
+			<Level>{getLevelFromScore(score)}</Level>
+		</Container>
+	)
 }

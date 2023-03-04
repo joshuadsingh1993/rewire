@@ -24,16 +24,16 @@ const RadialContainer = styled.div`
 
 type TableRowProps = {
     name: string,
-    score: number
+    score: number,
 }
 
 export default function TableRow({ name, score }: TableRowProps) {
-    return (
-        <Container>
-            <Name>{name}</Name>
-            <RadialContainer>
-                <RadialScore score={score} />
-            </RadialContainer>
-        </Container>
-    )
+	return (
+		<Container>
+			<Name>{name}</Name>
+			<RadialContainer>
+				<RadialScore score={score} />
+			</RadialContainer>
+		</Container>
+	)
 }

@@ -1,5 +1,6 @@
 import TableRow from './components/TableRow'
 import styled from 'styled-components'
+import TableHeader from './components/TableHeader'
 
 const Container = styled.div`
     background: #323232;
@@ -26,9 +27,10 @@ type AppProps = {
 export default function App({ data }: AppProps) {
 	return (
 		<Container>
+			<TableHeader header1="Athlete" header2="Score" />
 			{
 				Object.entries(data).map((athlete, index) => (
-					<TableRow name={athlete[0]} score={athlete[1]['1677658893169'].sc} />
+					<TableRow key={index} name={athlete[0]} score={athlete[1]['1677658893169'].sc} />
 				))
 			}
 		</Container>
