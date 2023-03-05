@@ -13,6 +13,7 @@ const Header = css`
     text-align: center;
     text-transform: uppercase;
     color: ${props => props.theme.colors.textGrey};
+    background: ${props => props.theme.colors.darkGrey};
 `
 
 const Header1 = styled.span`

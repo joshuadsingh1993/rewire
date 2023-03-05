@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import RadialScore from './RadialScore'
 
-const Container = styled.div`
+const Container = styled.div<{ light?: boolean}>`
     display: flex;
     align-items: center;
     border: 1px solid ${props => props.theme.colors.textGrey};
+    background: ${props => props.light ? props.theme.colors.grey : props.theme.colors.darkGrey};
 `
 
 const Name = styled.span`
@@ -28,11 +29,12 @@ const RadialContainer = styled.div`
 type TableRowProps = {
     name: string,
     score: number,
+    light?: boolean
 }
 
-export default function TableRow({ name, score }: TableRowProps) {
+export default function TableRow({ name, score, light }: TableRowProps) {
 	return (
-		<Container>
+		<Container light={light}>
 			<Name>{name}</Name>
 			<RadialContainer>
 				<RadialScore score={score} />
