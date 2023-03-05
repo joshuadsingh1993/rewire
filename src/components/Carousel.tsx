@@ -1,7 +1,7 @@
 import RadialScore from './RadialScore'
 
 import { Day } from '../App'
-import { dayCodes } from '../utils/constants'
+import { dayNames } from '../utils/constants'
 
 import styled from 'styled-components'
 
@@ -36,7 +36,8 @@ export default function Carousel({ days }: CarouselProps) {
 				days.map((day, index) => {
 					return (
 						<Item key={index}>
-							<RadialScore day={dayCodes[day[0] as keyof typeof dayCodes]} score={day[1].sc} />
+							{/* Convert timestamp to day index */}
+							<RadialScore day={dayNames[new Date(+day[0]).getDay()]} score={day[1].sc} />
 						</Item>
 					)
 				})
