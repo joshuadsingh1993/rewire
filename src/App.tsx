@@ -40,8 +40,9 @@ type AppProps = {
 export default function App({ data }: AppProps) {
 	return (
 		<>
-			<Title>Level up your game!</Title>
-			<Paragraph>Scroll horizontally to check your athlete&apos;s performance on different days!</Paragraph>
+			<Title>Level up your game! 🎉</Title>
+			<Paragraph>👉 Scroll horizontally to check your athlete&apos;s performance on different days!</Paragraph>
+			<Paragraph>👉 Refresh the page to see the ring animation 💪</Paragraph>
 			<Container>
 				<TableHeader header1="Athlete" header2="Score" />
 				{
