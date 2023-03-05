@@ -102,7 +102,7 @@ type RadialScoreProps = {
 export default function RadialScore({ day, score }: RadialScoreProps) {
 	const circleRef = useRef<SVGCircleElement>(null)
 
-  /**
+	/**
    * Calculates the length of the circumference for the ring
    * @param {number} percentage The score of the athlete
    * @returns {number} The offset / circumference of the ring
@@ -119,7 +119,7 @@ export default function RadialScore({ day, score }: RadialScoreProps) {
 				easing: 'ease-in-out'
 			}
 
-      // Animates the strokeDashoffset
+			// Animates the strokeDashoffset
 			circleRef.current.animate(circleRange, circleTiming as KeyframeAnimationOptions)
 		}
 	}, [])
@@ -131,7 +131,7 @@ export default function RadialScore({ day, score }: RadialScoreProps) {
 				<Radial>
 					<BackgroundCircle />
 					<Svg score={score}>
-            {/* cx - circle x coordinate | cy - circle y coordinate | r - radius */}
+						{/* cx - circle x coordinate | cy - circle y coordinate | r - radius */}
 						<circle ref={circleRef} cx={size / 2} cy={size / 2} r={size / 2 - ringWidth / 2} />
 					</Svg>
 					<Score>{score}</Score>
