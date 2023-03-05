@@ -71,6 +71,16 @@ const Svg = styled.svg<{ score: number }>`
     will-change: stroke-dashoffset;
   }
 `
+const Day = styled.span`
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: ${props => props.theme.colors.white};
+`
+
 const Level = styled.span`
     font-size: 14px;
     text-transform: uppercase;
@@ -82,10 +92,11 @@ const Level = styled.span`
 `
 
 type RadialScoreProps = {
+  day: string,
   score: number;
 }
 
-export default function RadialScore({ score }: RadialScoreProps) {
+export default function RadialScore({ day, score }: RadialScoreProps) {
 	const circleRef = useRef<SVGCircleElement>(null)
 
 	const circleOffset = (percentage: number) => `${((100 - percentage) / 100) * size * 2.75}`
@@ -106,6 +117,7 @@ export default function RadialScore({ score }: RadialScoreProps) {
 
 	return (
 		<Container>
+			<Day>{day}</Day>
 			<RadialContainer>
 				<Radial>
 					<BackgroundCircle />

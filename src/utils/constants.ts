@@ -8,6 +8,12 @@ export enum LEVELS {
     drained = 'drained'
 }
 
+export const dayCodes =  {
+	'1677658893169': 'monday',
+	'1677749826815': 'tuesday',
+	'1677840221239': 'wednesday'
+}
+
 export const levelRanges = {
 	[LEVELS.peak]: 100,
 	[LEVELS.strong]: 84,
