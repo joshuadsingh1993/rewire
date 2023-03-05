@@ -13,6 +13,7 @@ const Name = styled.span`
     padding: 15px;
     flex: 1;
     font-size: 20px;
+    font-weight: 500;
     text-transform: uppercase;
     color: ${props => props.theme.colors.white};
     min-width: 130px;
