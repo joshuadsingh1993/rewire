@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
-import styled from 'styled-components'
 import { LEVELS } from '../utils/constants'
 import { getLevelFromScore } from '../utils/helpers'
+
+import { useEffect, useRef } from 'react'
+import styled from 'styled-components'
 
 const ringWidth = 10
 const size = 80

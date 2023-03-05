@@ -1,7 +1,10 @@
-import styled from 'styled-components'
+import RadialScore from './RadialScore'
+
 import { Day } from '../App'
 import { dayCodes } from '../utils/constants'
-import RadialScore from './RadialScore'
+
+import styled from 'styled-components'
+
 
 const Container = styled.div`
     display: flex;

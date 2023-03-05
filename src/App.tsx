@@ -1,6 +1,7 @@
 import TableRow from './components/TableRow'
-import styled from 'styled-components'
 import TableHeader from './components/TableHeader'
+
+import styled from 'styled-components'
 
 const Title = styled.h1`
 	max-width: 460px;

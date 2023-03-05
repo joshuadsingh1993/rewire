@@ -6,11 +6,23 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "settings": {
         "react": {
             "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
         }
     },
     "overrides": [],
@@ -41,6 +53,22 @@
             "never"
         ],
         // suppress errors for missing 'import React' in files
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "always",
+                "groups": [
+                    "index",
+                    "sibling",
+                    "parent",
+                    "internal",
+                    "external",
+                    "builtin",
+                    "object",
+                    "type"
+                ]
+            }
+        ]
     }
 }

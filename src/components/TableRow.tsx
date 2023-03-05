@@ -1,6 +1,8 @@
-import styled from 'styled-components'
-import { Day } from '../App'
 import Carousel from './Carousel'
+
+import { Day } from '../App'
+
+import styled from 'styled-components'
 
 const Container = styled.div<{ light?: boolean }>`
     display: flex;
