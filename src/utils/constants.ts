@@ -14,6 +14,7 @@ export const dayCodes =  {
 	'1677840221239': 'wednesday'
 }
 
+// These values are the max score from the range
 export const levelRanges = {
 	[LEVELS.peak]: 100,
 	[LEVELS.strong]: 84,

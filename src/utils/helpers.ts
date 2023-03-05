@@ -1,6 +1,13 @@
 import { levelRanges, LEVELS } from './constants'
 
+/**
+ * Gets the level of the athlete from his score
+ * @param {number} score Athlete performance score
+ * @returns {string} The score level
+ * @example getLevelfromScore(99) // returns 'peak'
+ */
 export const getLevelFromScore = (score: number) => {
+	// Score cannot be less than 0 or more than 100
 	if (score > 100 || score < 0) {
 		throw Error('Score out of range. Please input a score from 0 - 100.')
 	}
@@ -33,6 +40,6 @@ export const getLevelFromScore = (score: number) => {
 		return LEVELS.drained
 	}
 
-	// default
+	// Finally returns default level
 	return LEVELS.peak
 }

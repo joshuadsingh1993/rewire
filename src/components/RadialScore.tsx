@@ -4,6 +4,7 @@ import { getLevelFromScore } from '../utils/helpers'
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
+// ringWidth is the thickness of the ring. size is the diameter of the ring.
 const ringWidth = 10
 const size = 80
 
@@ -65,6 +66,7 @@ const Svg = styled.svg<{ score: number }>`
     fill: none;
     stroke: ${props => props.theme.colors[LEVELS[getLevelFromScore(props.score)]]};
     stroke-width: ${ringWidth}px;
+    /* 2.75 is the ratio between the size of the ring and it's circumference */
     stroke-dasharray: ${size * 2.75};
     stroke-dashoffset: ${size * 2.75};
     transform-origin: 50% 50%;
@@ -100,11 +102,16 @@ type RadialScoreProps = {
 export default function RadialScore({ day, score }: RadialScoreProps) {
 	const circleRef = useRef<SVGCircleElement>(null)
 
+  /**
+   * Calculates the length of the circumference for the ring
+   * @param {number} percentage The score of the athlete
+   * @returns {number} The offset / circumference of the ring
+   */
 	const circleOffset = (percentage: number) => `${((100 - percentage) / 100) * size * 2.75}`
 
 	useEffect(() => {
 		if (circleRef.current) {
-			const circleSpinning = [{ strokeDashoffset: circleOffset(score) }]
+			const circleRange = [{ strokeDashoffset: circleOffset(score) }]
 
 			const circleTiming = {
 				duration: 500,
@@ -112,7 +119,8 @@ export default function RadialScore({ day, score }: RadialScoreProps) {
 				easing: 'ease-in-out'
 			}
 
-			circleRef.current.animate(circleSpinning, circleTiming as KeyframeAnimationOptions)
+      // Animates the strokeDashoffset
+			circleRef.current.animate(circleRange, circleTiming as KeyframeAnimationOptions)
 		}
 	}, [])
 
@@ -123,6 +131,7 @@ export default function RadialScore({ day, score }: RadialScoreProps) {
 				<Radial>
 					<BackgroundCircle />
 					<Svg score={score}>
+            {/* cx - circle x coordinate | cy - circle y coordinate | r - radius */}
 						<circle ref={circleRef} cx={size / 2} cy={size / 2} r={size / 2 - ringWidth / 2} />
 					</Svg>
 					<Score>{score}</Score>
