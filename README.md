@@ -1,7 +1,7 @@
 # Rewire Test
 
 Task: Create a Table with ‘Score Rings’ which visualizes the users’ scores (sc) for a
-particular day out of 100
+particular day out of 100.
 
 Expected Duration: 6-8 Hours
 
@@ -17,10 +17,20 @@ npm install
 
 ## Running the project
 
+For development:
+
 ```bash
 npm run dev
 ```
+
+For Production:
+
+```bash
+npm run build
+npm run preview
+```
+
 ## Project features
 
 - Scroll horizontally on the score row to check the scores for different days.
-- Ring animation on page refresh
+- Ring animation on page refresh.
